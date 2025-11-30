@@ -1,6 +1,7 @@
 ### 함수와 일급객
 
 #### 18.1 일급 객체
+
 - 함수는 객체이지만, 일반 객체와 달리 callable(호출가능)하다.
 - 일반 객체에는 함수 고유의 프로퍼티를 소유한다.
 
@@ -32,8 +33,22 @@ function makeCounter(aux: (num: number) => number) {
         return num;
     }
 }
+
 // 함수를 매개변수로 전달할 수 있다.
-const increaser = makeCounter(auxs.increase); 
+const increaser = makeCounter(auxs.increase);
 console.log(increaser()); // 1
 
+```
+
+### 18.2 함수 객체의 프로퍼티
+
+#### 18.2.1 arguments 프로퍼티
+- arguments 객체는 함수 호출 시 전달된 인수들의 정보를 담고 있는 유사 배열 객체이다.
+- 해당 방식은 ES3부터 표준에서 폐지되어서 권장되지 않는 방법이다.
+
+```javascript
+function multiply(x, y) {
+    console.log(arguments);
+    return x * y;
+}
 ```
