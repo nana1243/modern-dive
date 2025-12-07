@@ -36,3 +36,31 @@ foo();
 console.log(x); // 'global variable'
 
 ```
+
+#### 14.1.2 전역변수의 생명주기
+- 전역 객체는 클라이언트 사이드에서는 window 객체, 서버 사이드에서는 global 객체를 의미한다.
+
+### 14.2 전역변수의 문제점
+- 암묵적 결합 
+- 스코프 체인상에서 종점이 존재
+- 네임스페이스 오염
+
+### 14.3 전역변수의 사용을 억제하는 방법
+- 즉시 실행함수 : 모든 코들르 즉시 실행함수로 감싸면 전역변수를 만들지 않는다.
+- 네임스페이스 객체 
+- 모듈패턴 
+```javascript
+var Counter = (function() {
+    var num = 0; // private 변수
+
+    return {
+        increase: function() {
+            return ++num;
+        },
+        decrease: function() {
+            return --num;
+        }
+    };
+})();
+
+```
